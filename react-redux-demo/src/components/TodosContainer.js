@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Todos from './Todos'
-import { addTodo, toggleTodo } from '../redux/todos/todosActions'
+// import { addTodo, toggleTodo } from '../redux/todos/todosActions'
+import { addTodo, toggleTodo } from '../redux-toolkit/todos/todosSlice'
 
 const TodosContainer = () => {
     // useSelector 에서 꼭 객체를 반환 할 필요는 없습니다.
