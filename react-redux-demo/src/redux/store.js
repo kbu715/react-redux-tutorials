@@ -15,11 +15,13 @@ export default store
 import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from '../redux-toolkit/counter/counterSlice'
 import todosSlice from '../redux-toolkit/todos/todosSlice'
+import usersSlice from '../redux-toolkit/users/usersSlice'
 
 const store = configureStore({
   reducer: {
     counter: counterSlice,
-    todos: todosSlice
+    todos: todosSlice,
+    users: usersSlice
   }
 })
 

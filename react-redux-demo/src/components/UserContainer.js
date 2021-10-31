@@ -1,40 +1,39 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { fetchUsers } from '../redux'
+import { useDispatch, useSelector } from 'react-redux'
+// import { fetchUsers } from '../redux'
+import { getUsers } from '../redux-toolkit/users/usersSlice'
 
-function UserContainer({ fetchUsers, userData }) {
+function UserContainer() {
+
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.users)
 
   useEffect(() => {
-    fetchUsers()
+    dispatch(getUsers())
   }, [])
 
-  return userData.loading ? (
-    <h2>Loading...</h2>
-  ) : userData.error ? (
-    <h2>{userData.error}</h2>
-  ) : (
+  return (
     <div>
-      <h2>User List</h2>
-      <div>
-        {userData?.users?.map(user => <p key={user.id}>{user.name}</p>)}
-      </div>
+      <h1>Redux Toolkit createAsyncThunk</h1>
+      {users && users.map((user, i) => <h1 key={i}>{user.name}</h1>)}
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userData: state.user
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     userData: state.user
+//   }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchUsers: () => dispatch(fetchUsers())
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchUsers: () => dispatch(fetchUsers())
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
+export default UserContainer
 
 
 // rfce

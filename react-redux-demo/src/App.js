@@ -11,13 +11,14 @@ import TodosContainer from './components/TodosContainer';
 import { Counter } from './components/Counter';
 
 function App() {
+
   return (
     <Provider store={store}>
       <div className="App">
         <TodosContainer />
         <hr />
-        {/* <UserContainer />
-        <ItemContainer cake />
+        <UserContainer />
+        {/* <ItemContainer cake />
         <ItemContainer />
         <HooksCakeContainer />
         <CakeContainer />
